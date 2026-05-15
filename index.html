@@ -142,7 +142,7 @@
   </div>
   <h1>Happy Birthday<br><em><span style="color:#FF2D55;text-shadow:3px 3px 0 rgba(0,0,0,.3)">Abigail</span> &amp; <span style="color:#5AC8FA;text-shadow:3px 3px 0 rgba(0,0,0,.3)">Elodie</span>! 🎂🎂</em></h1>
   <p class="tagline">They're celebrating their 10th birthday at Nickelodeon Universe — and you're all invited! 🎉</p>
-  <p style="font-size:clamp(.95rem,2.5vw,1.2rem);opacity:.85;margin-bottom:1.4rem;">Please sign up below. See details for time and where to meet.<br>It's going to be super fun — hope you can all join! 🥳</p>
+  <p style="font-size:clamp(.95rem,2.5vw,1.2rem);opacity:.85;margin-bottom:1.4rem;">See details for time and where to meet.<br>It's going to be super fun — hope you can all join! 🥳</p>
   <div class="location-pill">📍 American Dream Mall · East Rutherford, NJ</div>
 </section>
 
@@ -158,8 +158,8 @@
 <section class="info-section">
   <div class="section-head"><h2>🎉 Party Details</h2><p>Save the date — it's gonna be epic!</p></div>
   <div class="info-grid">
-    <div class="info-card"><span class="info-icon">📅</span><p class="info-label">Date</p><p class="info-value">June 5th, 2025</p></div>
-    <div class="info-card"><span class="info-icon">🕐</span><p class="info-label">Time</p><p class="info-value">12:00 – 5:00 PM</p></div>
+    <div class="info-card"><span class="info-icon">📅</span><p class="info-label">Date</p><p class="info-value">June 6th, 2025</p></div>
+    <div class="info-card"><span class="info-icon">🕐</span><p class="info-label">Time</p><p class="info-value">12:00 – 3:00 PM</p></div>
     <div class="info-card"><span class="info-icon">📍</span><p class="info-label">Location</p><p class="info-value">Nickelodeon Universe</p></div>
     <div class="info-card"><span class="info-icon">🎡</span><p class="info-label">Park</p><p class="info-value">Largest Indoor Park in the US</p></div>
   </div>
@@ -223,7 +223,7 @@
 
 <!-- COUNTDOWN -->
 <section class="countdown-section">
-  <p class="countdown-title">⏳ Counting Down to June 5th!</p>
+  <p class="countdown-title">⏳ Counting Down to June 6th!</p>
   <div class="countdown-grid">
     <div class="count-box"><span class="count-num" id="days">--</span><span class="count-label">Days</span></div>
     <div class="count-box"><span class="count-num" id="hours">--</span><span class="count-label">Hours</span></div>
@@ -232,21 +232,7 @@
   </div>
 </section>
 
-<!-- RSVP -->
-<section class="rsvp-section">
-  <h2 class="slime-title">You're Invited — Sign Up Below! 🟢</h2>
-  <p style="opacity:.85;margin-bottom:.3rem;font-size:1.05rem;">Check the details above for time and where to meet.<br>Let us know you're coming so we can save your spot! 🎉</p>
-  <div class="rsvp-form">
-    <div class="form-field"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Enter your name" id="nameInput"></div>
-    <div class="form-field"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="your@email.com" id="emailInput"></div>
-    <div class="form-field"><label class="form-label">How Many Are Coming?</label>
-      <select class="form-select" id="guestsInput"><option>Just me (1)</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select>
-    </div>
-    <div class="form-field"><label class="form-label">Message for the Twins 🎉</label><input class="form-input" type="text" placeholder="Can't wait to celebrate! 🥳" id="msgInput"></div>
-    <button class="submit-btn" onclick="submitRSVP()">🟢 Count Me In!</button>
-    <div class="success-msg" id="successMsg">🎉 YESSSS! You're on the list!<br>See you June 5th at Nickelodeon Universe! 🥳🎢</div>
-  </div>
-</section>
+<!-- RSVP removed per request -->
 
 <footer><p>🎂 Made with love for Abigail &amp; Elodie's 10th Birthday 2025 · Nickelodeon Universe · American Dream Mall, East Rutherford NJ 🎂</p></footer>
 
@@ -304,7 +290,7 @@ photos.forEach(({id, url}, i) => {
 
 // Countdown
 function tick(){
-  const diff=new Date('2025-06-05T12:00:00')-new Date();
+  const diff=new Date('2025-06-06T12:00:00')-new Date();
   if(diff<=0){['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=['🎉','🎂','🎊','🥳'][i]);return;}
   document.getElementById('days').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
   document.getElementById('hours').textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
@@ -312,16 +298,6 @@ function tick(){
   document.getElementById('seconds').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
 tick();setInterval(tick,1000);
-
-// RSVP
-function submitRSVP(){
-  const n=document.getElementById('nameInput').value.trim();
-  const e=document.getElementById('emailInput').value.trim();
-  if(!n||!e){alert('Please fill in your name and email! 🙏');return;}
-  document.getElementById('successMsg').innerHTML='🎉 YESSSS! You\'re on the list!<br>See you June 5th at Nickelodeon Universe for Abigail &amp; Elodie\'s 10th Birthday! 🥳🎢';
-  document.getElementById('successMsg').style.display='block';
-  document.querySelector('.submit-btn').style.display='none';
-}
 </script>
 </body>
 </html>
