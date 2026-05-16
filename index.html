@@ -14,6 +14,14 @@
   }
   body { font-family: 'Nunito', sans-serif; background: var(--dark); color: #fff; overflow-x: hidden; }
 
+  /* GUEST NOTE */
+  .guest-note { max-width:860px;margin:2rem auto;background:linear-gradient(135deg,#12121f,#1a1a30);border:1.5px solid rgba(255,215,0,.2);border-radius:20px;padding:1.5rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;box-shadow:0 10px 30px rgba(0,0,0,.5); }
+  .guest-note img { width:160px;height:160px;object-fit:cover;border-radius:14px;flex:0 0 160px;box-shadow:0 6px 20px rgba(0,0,0,.5);border:2px solid rgba(255,255,255,.15); }
+  .guest-note-body { flex:1; }
+  .guest-note-title { font-family:'Boogaloo',cursive;font-size:1.3rem;color:var(--yellow);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem; }
+  .guest-note-text { font-size:.97rem;line-height:1.65;color:rgba(255,255,255,.88); }
+  @media(max-width:650px){ .guest-note{flex-direction:column;align-items:center;text-align:center} .guest-note img{width:100%;height:auto;flex:none;max-width:300px} }
+
   /* HERO */
   .hero {
     position: relative;
@@ -137,8 +145,8 @@
   <div class="hero-circles"><span></span><span></span><span></span></div>
   <div class="balloons" id="balloons"></div>
   <div class="nick-badge">🎂 Twins' 10th Birthday · Nickelodeon Universe</div>
-  <div style="display:block;margin:0 auto 1.2rem;width:min(90%,420px);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.45);border:3px solid rgba(255,255,255,.25);">
-    <img src="WhatsApp Image 2026-05-09 at 9.42.34 AM.jpeg" alt="Abigail and Elodie" style="width:100%;height:auto;display:block;transform:scale(1.2);transform-origin:center center;">
+  <div style="display:block;margin:0 auto 1.2rem;width:min(90%,480px);border-radius:24px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.6);border:3px solid rgba(255,255,255,.3);">
+    <img src="twins.jpeg" alt="Abigail and Elodie" style="width:100%;height:auto;display:block;">
   </div>
   <h1>Happy Birthday<br><em><span style="color:#FF2D55;text-shadow:3px 3px 0 rgba(0,0,0,.3)">Abigail</span> &amp; <span style="color:#5AC8FA;text-shadow:3px 3px 0 rgba(0,0,0,.3)">Elodie</span>! 🎂🎂</em></h1>
   <p class="tagline">They're celebrating their 10th birthday at Nickelodeon Universe — and you're all invited! 🎉</p>
@@ -165,12 +173,15 @@
   </div>
 </section>
 
-<!-- PHOTO GALLERY -->
-  
-  <div class="event-note" style="max-width:860px;margin:1.5rem auto;background:linear-gradient(135deg,#11111b,#171726);border:1px solid rgba(255,255,255,.06);padding:1rem 1.25rem;border-radius:12px;color:rgba(255,255,255,.9);font-size:.98rem;line-height:1.4;">
-    <strong>Guest notes:</strong> Please have a light meal before you arrive and ensure children eat beforehand. Plan to arrive 15–20 minutes early (aim for 11:40 AM); entrance opens at 12:00 PM. Children will be on rides from 12:00–2:30 PM. At 2:30 PM they will move to the private party area to celebrate Abigail &amp; Elodie's birthday, where pizza and drinks will be served.
+<!-- GUEST NOTE -->
+<div style="background:#0D0D1A;padding:0 1.5rem;">
+  <div class="guest-note" style="display:block;">
+    <p class="guest-note-title">📋 Good to Know Before You Arrive</p>
+    <p class="guest-note-text">Please have a light meal before you arrive and make sure children eat beforehand. Plan to arrive 15–20 minutes early (aim for 11:40 AM); entrance opens at 12:00 PM. Children will be on rides from 12:00–2:30 PM. At 2:30 PM they will move to the private party area to celebrate Abigail &amp; Elodie's birthday, where pizza and drinks will be served.</p>
   </div>
+</div>
 
+<!-- PHOTO GALLERY -->
 <section class="gallery-section">
   <h2 class="gallery-title">Rides & <span>Fun Await!</span> 🎢</h2>
   <p class="gallery-sub">35+ attractions, 5 roller coasters, characters & slime — all indoors at American Dream!</p>
@@ -237,7 +248,7 @@
   </div>
 </section>
 
-<!-- RSVP removed per request -->
+
 
 <footer><p>🎂 Made with love for Abigail &amp; Elodie's 10th Birthday 2025 · Nickelodeon Universe · American Dream Mall, East Rutherford NJ 🎂</p></footer>
 
@@ -303,6 +314,16 @@ function tick(){
   document.getElementById('seconds').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
 tick();setInterval(tick,1000);
+
+// RSVP
+function submitRSVP(){
+  const n=document.getElementById('nameInput').value.trim();
+  const e=document.getElementById('emailInput').value.trim();
+  if(!n||!e){alert('Please fill in your name and email! 🙏');return;}
+  document.getElementById('successMsg').innerHTML='🎉 YESSSS! You\'re on the list!<br>See you June 5th at Nickelodeon Universe for Abigail &amp; Elodie\'s 10th Birthday! 🥳🎢';
+  document.getElementById('successMsg').style.display='block';
+  document.querySelector('.submit-btn').style.display='none';
+}
 </script>
 </body>
 </html>
