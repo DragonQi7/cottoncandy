@@ -133,6 +133,35 @@
   }
 
   @media(max-width:1100px){ .char-left,.char-right{display:none;} }
+
+  /* MUSIC BUTTON */
+  .music-btn{position:fixed;bottom:1.5rem;right:1.5rem;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#FF3D8B,#c060d0);border:none;cursor:pointer;font-size:1.6rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(255,61,139,.5);z-index:1000;transition:transform .2s;animation:mbpulse 2s ease-in-out infinite;}
+  .music-btn:hover{transform:scale(1.15);}
+  .music-btn.playing{background:linear-gradient(135deg,#00C853,#00E676);animation:none;}
+  @keyframes mbpulse{0%,100%{box-shadow:0 4px 20px rgba(255,61,139,.5)}50%{box-shadow:0 4px 28px rgba(255,61,139,.9),0 0 0 10px rgba(255,61,139,.13)}}
+
+  /* TIMELINE */
+  .timeline-section{background:linear-gradient(180deg,#0D0D1A,#0f0f22);padding:3rem 1.5rem;}
+  .tl-wrap{max-width:560px;margin:0 auto;}
+  .tl-item{display:flex;gap:1.25rem;margin-bottom:1.75rem;align-items:flex-start;}
+  .tl-dot{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;border:2px solid rgba(255,255,255,.15);}
+  .tl-card{flex:1;background:linear-gradient(135deg,#1C1C38,#22223F);border-radius:16px;padding:1rem 1.25rem;border:1.5px solid rgba(255,255,255,.08);box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .3s;}
+  .tl-card:hover{transform:translateY(-3px);}
+  .tl-time{font-family:'Boogaloo',cursive;font-size:1.3rem;color:var(--yellow);margin-bottom:.2rem;}
+  .tl-label{font-weight:700;margin-bottom:.25rem;font-size:.97rem;}
+  .tl-desc{font-size:.85rem;opacity:.7;line-height:1.45;}
+
+  /* GET THERE */
+  .gethere-section{background:#0D0D1A;padding:2.5rem 1.5rem;}
+  .gethere-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;max-width:640px;margin:0 auto;}
+  .gethere-card{background:linear-gradient(135deg,#1C1C38,#22223F);border:2px solid rgba(255,255,255,.08);border-radius:20px;padding:1.75rem 1.5rem;text-align:center;cursor:pointer;color:#fff;text-decoration:none;transition:all .3s;display:block;}
+  .gethere-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.4);}
+  .gethere-card.map-card{border-color:var(--lightblue);}
+  .gethere-card.cal-card{border-color:var(--green);}
+  .gethere-icon{font-size:2.8rem;display:block;margin-bottom:.75rem;}
+  .gethere-title{font-family:'Boogaloo',cursive;font-size:1.35rem;margin-bottom:.3rem;}
+  .gethere-sub{font-size:.82rem;opacity:.6;}
+  @media(max-width:480px){.gethere-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -180,6 +209,45 @@
     <p class="guest-note-text">Please have a light meal before you arrive and make sure children eat beforehand. Plan to arrive 15–20 minutes early (aim for 11:40 AM); entrance opens at 12:00 PM. Children will be on rides from 12:00–2:30 PM. At 2:30 PM they will move to the private party area to celebrate Abigail &amp; Elodie's birthday, where pizza and drinks will be served.</p>
   </div>
 </div>
+
+<!-- PARTY TIMELINE -->
+<section class="timeline-section">
+  <div class="section-head"><h2 style="font-family:'Boogaloo',cursive;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--pink);">🗓️ Day-of Schedule</h2><p style="opacity:.6;font-size:.95rem;margin-top:.3rem;">Here's how the party day unfolds!</p></div>
+  <div class="tl-wrap">
+    <div class="tl-item">
+      <div class="tl-dot" style="background:linear-gradient(135deg,#FF3D8B,#c060d0);">🚗</div>
+      <div class="tl-card" style="border-color:rgba(255,61,139,.4);">
+        <p class="tl-time">11:40 AM</p>
+        <p class="tl-label">Arrive at American Dream</p>
+        <p class="tl-desc">Head to the Nickelodeon Universe entrance. Plan to arrive 15–20 minutes early!</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:linear-gradient(135deg,#c060d0,#5AC8FA);">🎢</div>
+      <div class="tl-card" style="border-color:rgba(192,96,208,.4);">
+        <p class="tl-time">12:00 PM</p>
+        <p class="tl-label">Entrance Opens — Rides Begin!</p>
+        <p class="tl-desc">2.5 hours of coasters, thrill rides &amp; Nickelodeon fun. Let's go! 🎉</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:linear-gradient(135deg,#5AC8FA,#00C853);">🍕</div>
+      <div class="tl-card" style="border-color:rgba(90,200,250,.4);">
+        <p class="tl-time">2:30 PM</p>
+        <p class="tl-label">Private Party Room</p>
+        <p class="tl-desc">Move to the private party area — pizza, drinks &amp; birthday cake! 🎂</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:linear-gradient(135deg,#FFD700,#FF6B00);">👋</div>
+      <div class="tl-card" style="border-color:rgba(255,215,0,.4);">
+        <p class="tl-time">3:00 PM</p>
+        <p class="tl-label">Party Wraps Up</p>
+        <p class="tl-desc">Head home full of sugar, memories &amp; smiles. Thank you for celebrating! 💛</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- PHOTO GALLERY -->
 <section class="gallery-section">
@@ -248,9 +316,27 @@
   </div>
 </section>
 
+<!-- GET THERE -->
+<section class="gethere-section">
+  <div class="section-head"><h2 style="font-family:'Boogaloo',cursive;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--lightblue);">📍 Get There &amp; Save the Date</h2><p style="opacity:.6;font-size:.95rem;margin-top:.3rem;">American Dream Mall · 1 American Dream Way · East Rutherford, NJ</p></div>
+  <div class="gethere-grid">
+    <a href="https://maps.google.com/?q=American+Dream+Mall,+1+American+Dream+Way,+East+Rutherford,+NJ+07073" target="_blank" rel="noopener noreferrer" class="gethere-card map-card">
+      <span class="gethere-icon">🗺️</span>
+      <p class="gethere-title">Open in Maps</p>
+      <p class="gethere-sub">Get directions to American Dream Mall</p>
+    </a>
+    <div class="gethere-card cal-card" onclick="addToCalendar()" role="button" tabindex="0">
+      <span class="gethere-icon">📆</span>
+      <p class="gethere-title">Add to Calendar</p>
+      <p class="gethere-sub">Save June 6th, 2026 to your calendar</p>
+    </div>
+  </div>
+</section>
 
+<!-- MUSIC BUTTON -->
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Play Happy Birthday 🎵" aria-label="Play Happy Birthday">🎵</button>
 
-<footer><p>🎂 Made with love for Abigail &amp; Elodie's 10th Birthday 2025 · Nickelodeon Universe · American Dream Mall, East Rutherford NJ 🎂</p></footer>
+<footer><p>🎂 Made with love for Abigail &amp; Elodie's 10th Birthday 2026 · Nickelodeon Universe · American Dream Mall, East Rutherford NJ 🎂</p></footer>
 
 <script>
 // Balloons
@@ -314,6 +400,61 @@ function tick(){
   document.getElementById('seconds').textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
 }
 tick();setInterval(tick,1000);
+
+// Happy Birthday — Web Audio API
+let _mPlaying=false,_mCtx=null,_mOscs=[];
+function toggleMusic(){
+  const btn=document.getElementById('musicBtn');
+  if(_mPlaying){
+    _mOscs.forEach(o=>{try{o.stop();}catch(e){}});
+    _mOscs=[];if(_mCtx){_mCtx.close();_mCtx=null;}
+    _mPlaying=false;btn.textContent='🎵';btn.classList.remove('playing');
+  } else { playHappyBirthday(); }
+}
+function playHappyBirthday(){
+  const Ctx=window.AudioContext||window.webkitAudioContext;
+  if(!Ctx)return;
+  _mCtx=new Ctx();_mPlaying=true;
+  const btn=document.getElementById('musicBtn');
+  btn.textContent='🎶';btn.classList.add('playing');
+  // [frequency Hz, duration s] — Happy Birthday
+  const N=[
+    [261.63,.35],[261.63,.35],[293.66,.7],[261.63,.7],[349.23,.7],[329.63,1.4],
+    [261.63,.35],[261.63,.35],[293.66,.7],[261.63,.7],[392.00,.7],[349.23,1.4],
+    [261.63,.35],[261.63,.35],[523.25,.7],[440.00,.7],[349.23,.7],[329.63,.7],[293.66,1.4],
+    [466.16,.35],[466.16,.35],[440.00,.7],[349.23,.7],[392.00,.7],[349.23,1.8]
+  ];
+  let t=_mCtx.currentTime+0.1;
+  N.forEach(([freq,dur])=>{
+    const o=_mCtx.createOscillator(),g=_mCtx.createGain();
+    o.connect(g);g.connect(_mCtx.destination);
+    o.type='triangle';o.frequency.value=freq;
+    g.gain.setValueAtTime(0.25,t);
+    g.gain.exponentialRampToValueAtTime(0.001,t+dur-.04);
+    o.start(t);o.stop(t+dur);_mOscs.push(o);t+=dur;
+  });
+  const total=N.reduce((s,[,d])=>s+d,0);
+  setTimeout(()=>{_mPlaying=false;_mOscs=[];btn.textContent='🎵';btn.classList.remove('playing');},(total+.5)*1000);
+}
+
+// Add to Calendar (downloads .ics file)
+function addToCalendar(){
+  const ics=[
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CottonCandy//Birthday//EN',
+    'BEGIN:VEVENT',
+    'DTSTART:20260606T120000',
+    'DTEND:20260606T150000',
+    'SUMMARY:Abigail & Elodie 10th Birthday Party',
+    'DESCRIPTION:Nickelodeon Universe at American Dream Mall. Arrive by 11:40 AM!',
+    'LOCATION:American Dream Mall\, 1 American Dream Way\, East Rutherford\, NJ 07073',
+    'END:VEVENT','END:VCALENDAR'
+  ].join('\r\n');
+  const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='AbigailElodie10thBirthday.ics';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+}
 
 // RSVP
 function submitRSVP(){
