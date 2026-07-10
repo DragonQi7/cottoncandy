@@ -59,7 +59,7 @@
   <div class="subtitle">⚡ 10 fighters &middot; 1 survivor ⚡</div>
   <div class="cards" id="cards"></div>
   <button class="btn" id="playBtn">FIGHT!</button>
-  <div class="controls-hint"><b>WASD</b> move &nbsp;&middot;&nbsp; <b>MOUSE</b> aim &nbsp;&middot;&nbsp; <b>CLICK / HOLD</b> shoot &nbsp;&middot;&nbsp; <b>SPACE</b> super</div>
+  <div class="controls-hint"><b>ARROW KEYS</b> move &nbsp;&middot;&nbsp; <b>MOUSE</b> aim &nbsp;&middot;&nbsp; <b>CLICK / HOLD</b> shoot &nbsp;&middot;&nbsp; <b>SPACE</b> super</div>
 </div>
 
 <div id="end" class="overlay hidden">
@@ -469,7 +469,7 @@ function update(dt){
   gasR += (gasTargetR-gasR)*dt*.5;
   // --- player input
   if(player && !player.dead){
-    let mx=(keys['d']?1:0)-(keys['a']?1:0), my=(keys['s']?1:0)-(keys['w']?1:0);
+    let mx=(keys['arrowright']?1:0)-(keys['arrowleft']?1:0), my=(keys['arrowdown']?1:0)-(keys['arrowup']?1:0);
     const l=Math.hypot(mx,my)||1;
     player.vx = mx/l*player.b.speed; player.vy = my/l*player.b.speed;
     player.aim = Math.atan2(mouseY+camY-player.y, mouseX+camX-player.x);
@@ -904,6 +904,7 @@ addEventListener('keydown', e=>{
   const k=e.key.toLowerCase();
   keys[k]=true;
   if(k===' '){ wantSuper=true; e.preventDefault(); }
+  if(k.startsWith('arrow')) e.preventDefault(); // stop page scrolling
 });
 addEventListener('keyup', e=>{ keys[e.key.toLowerCase()]=false; });
 canvas.addEventListener('mousemove', e=>{ mouseX=e.clientX; mouseY=e.clientY; });
